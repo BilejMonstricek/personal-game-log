@@ -32,7 +32,7 @@ likes:["Silná atmosféra a zajímavý příběh","Velmi dobré vedlejší úkol
 dislikes:["Tempo se v druhé polovině docela natahuje","Až příliš backtrackingu","Pohyb je neintuitivní, plný neviditelných bariér a nalajnovaných cest","Soubojový systém je kostrbatý a méně plynulý než inspirovaný GoW 2018","Rychlé cestování je řešené nešťastně a brzdí tempo","Hra neukazuje počet obětovaných postav, přestože to zásadně ovlivňuje konec","Velké množství úkolů a postav může po čase působit zahlcujícím dojmem","Dabing postav zní tak trošku jednotvárně, ale asi jen osobní pohled"]
 
 }];
-const storageKey="personal-game-log-games-v2";
+const storageKey="personal-game-log-games-v3";
 let games=JSON.parse(localStorage.getItem(storageKey)||"null")||initialGames;
 let view="library",selected=games[0]?.id||null,editing=false;
 const $=id=>document.getElementById(id);
