@@ -189,7 +189,7 @@ for(const game of games){
   verifiedArtworkChanged=true;
  }
 }
-if(verifiedArtworkChanged)localStorage.setItem(storageKey,JSON.stringify(games));
+for(const game of games){if(/knife.*dunwall|dunwall.*knife|blood.*dunwall/i.test(String(game.title||game.shortTitle||""))||/dishonored[-_]?knife[-_]?of[-_]?dunwall|blood.*dunwall/i.test(String(game.id||""))){game.imageUrl="https://cdn.akamai.steamstatic.com/steam/apps/205100/header.jpg";game.coverImageUrl="https://cdn.akamai.steamstatic.com/steam/apps/205100/library_600x900.jpg";verifiedArtworkChanged=true;}}if(verifiedArtworkChanged)localStorage.setItem(storageKey,JSON.stringify(games));
 
 let view="library",selected=games[0]?.id||null,editing=false;
 const $=id=>document.getElementById(id);
