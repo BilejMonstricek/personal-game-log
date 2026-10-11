@@ -179,8 +179,8 @@ for(const [artId,fields] of Object.entries(verifiedArtworkCorrections)){const ga
 for(const game of games){
  const name=String(game.title||game.shortTitle||"");
  if(/^(dishonored\s*[-:–]?\s*)?(the\s+)?knife of dunwall$|blood of dunwall/i.test(name)||/dishonoredknifeofdunwall|bloodofdunwall/i.test(String(game.id||""))){
-  game.imageUrl="https://cdn.akamai.steamstatic.com/steam/apps/205100/header.jpg";
-  game.coverImageUrl="https://cdn.akamai.steamstatic.com/steam/apps/205100/library_600x900.jpg";
+  game.imageUrl="https://cdn.akamai.steamstatic.com/steam/apps/208575/header.jpg";
+  game.coverImageUrl="https://cdn.akamai.steamstatic.com/steam/apps/208575/header.jpg";
   verifiedArtworkChanged=true;
  }
  if(/overlord\s*(ii|2)/i.test(name)||/overlord[-_]?2/i.test(String(game.id||""))){
@@ -189,7 +189,7 @@ for(const game of games){
   verifiedArtworkChanged=true;
  }
 }
-for(const game of games){if(/knife.*dunwall|dunwall.*knife|blood.*dunwall/i.test(String(game.title||game.shortTitle||""))||/dishonored[-_]?knife[-_]?of[-_]?dunwall|blood.*dunwall/i.test(String(game.id||""))){game.imageUrl="https://cdn.akamai.steamstatic.com/steam/apps/205100/header.jpg";game.coverImageUrl="https://cdn.akamai.steamstatic.com/steam/apps/205100/library_600x900.jpg";verifiedArtworkChanged=true;}}if(verifiedArtworkChanged)localStorage.setItem(storageKey,JSON.stringify(games));
+for(const game of games){if(/knife.*dunwall|dunwall.*knife|blood.*dunwall/i.test(String(game.title||game.shortTitle||""))||/dishonored[-_]?knife[-_]?of[-_]?dunwall|blood.*dunwall/i.test(String(game.id||""))){game.imageUrl="https://cdn.akamai.steamstatic.com/steam/apps/208575/header.jpg";game.coverImageUrl="https://cdn.akamai.steamstatic.com/steam/apps/208575/header.jpg";verifiedArtworkChanged=true;}}if(verifiedArtworkChanged)localStorage.setItem(storageKey,JSON.stringify(games));
 
 let view="library",selected=games[0]?.id||null,editing=false;
 const $=id=>document.getElementById(id);
