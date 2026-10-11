@@ -197,6 +197,33 @@ const dawnwalker=games.find(g=>String(g.id||"")==="blood-of-dawnwalker"||/blood 
 if(dawnwalker){dawnwalker.title="The Blood of the Dawnwalker";dawnwalker.shortTitle="The Blood of the Dawnwalker";}
 if(verifiedArtworkChanged||games.length!==originalGameCount)localStorage.setItem(storageKey,JSON.stringify(games));
 
+
+/* Refined game artwork: use game-specific key art, never photos of retail boxes. */
+const refinedArtwork = {
+ "god-of-war-2005": {
+  imageUrl:"https://gmedia.playstation.com/is/image/SIEPDC/god-of-war-iii-remastered-hero-banner-desktop-01-en-18aug21?wid=1920&hei=1080&fmt=jpg",
+  coverImageUrl:"https://cdn2.steamgriddb.com/grid/193376.png"
+ },
+ "uncharted-4": {
+  imageUrl:"https://gmedia.playstation.com/is/image/SIEPDC/uncharted-4-a-thiefs-end-hero-01-ps4-us-14jun16?wid=1920&hei=1080&fmt=jpg",
+  coverImageUrl:"https://cdn2.steamgriddb.com/grid/193376.png"
+ },
+ "uncharted-lost-legacy": {
+  imageUrl:"https://gmedia.playstation.com/is/image/SIEPDC/uncharted-the-lost-legacy-hero-03-en-06nov20?wid=1920&hei=1080&fmt=jpg",
+  coverImageUrl:"https://cdn2.steamgriddb.com/grid/378657.jpg"
+ },
+ "blood-of-dawnwalker": {
+  imageUrl:"https://cdn.akamai.steamstatic.com/steam/apps/3751260/header.jpg",
+  coverImageUrl:"https://cdn.akamai.steamstatic.com/steam/apps/3751260/library_600x900.jpg"
+ }
+};
+let refinedArtworkChanged=false;
+for(const [artId,fields] of Object.entries(refinedArtwork)){
+ const game=games.find(g=>g.id===artId);
+ if(game){Object.assign(game,fields);refinedArtworkChanged=true;}
+}
+if(refinedArtworkChanged)localStorage.setItem(storageKey,JSON.stringify(games));
+
 let view="library",selected=games[0]?.id||null,editing=false;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
